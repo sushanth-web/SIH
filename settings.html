@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile Settings</title>
+
+  <!-- Ensure Tailwind uses class-based dark mode -->
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {} }
+    };
+    // Note: this must appear BEFORE the tailwind CDN script
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen relative">
+  <div class="flex">
+    
+    <!-- Sidebar -->
+    <aside id="sidebar" 
+  class="w-[240px] transition-all duration-300 shrink-0 px-4 pt-6 pb-6 sticky top-0 h-screen flex flex-col"
+  style="background:var(--sidebar);color:var(--sidebar-ink)">
+  
+  <!-- Header -->
+  <div class="flex items-center mb-10 sidebar-header">
+    <div class="w-9 h-9 rounded-xl bg-[--brand] grid place-content-center text-white font-black">DF</div>
+    <span class="text-2xl font-bold sidebar-text  ml-2">DevForce</span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="space-y-2 text-[15px] font-semibold flex-1">
+    <a class=" flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="home.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-house text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none pb-2 sidebar-text pb-[8px]">Home</span>
+    </a>
+
+    <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="pdf.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-file text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Resources</span>
+    </a>
+
+    <a class=" flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="courses.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-graduation-cap text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Courses</span>
+    </a>
+
+    <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="scholarships.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-user-graduate text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Scholarships</span>
+    </a>
+
+    <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="career.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-route text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Career</span>
+    </a>
+
+    <a class="flex nav-active items-center gap-3 px-4 h-11 rounded-xl bg-[rgba(46,120,255,0.10)] text-[--brand] pt-[6px] " href="settings.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-gear text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Settings</span>
+    </a>
+  </nav>
+
+  <!-- Sign out -->
+  <div class="pt-8">
+    <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] text-red-500 font-semibold" href="index.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-right-from-bracket text-red-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Sign Out</span>
+    </a>
+  </div>
+
+  <!-- Collapse Button -->
+  <div class="pt-6 flex justify-center">
+    <button id="collapseBtn" 
+      class="w-8 h-8 rounded-full bg-[--brand] text-white flex items-center justify-center shadow-md leading-none">
+      <i class="fa-solid fa-angle-left text-base pt-[3px] "></i>
+    </button>
+  </div>
+</aside>
+
+    <!-- Main -->
+    <main class="flex-1 px-6 md:px-8 lg:px-10 py-6 space-y-6">
+      <!-- Top Bar -->
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold">Profile Settings ⚙️</h1>
+        <div class="flex items-center gap-3">
+          <!-- Theme Toggle -->
+          <div class="flex items-center gap-2">
+            <button id="sunBtn" class="w-9 h-9 grid place-content-center rounded-full bg-white border border-[--line] dark:bg-[#0C0F16]">☀️</button>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input id="modeToggle" type="checkbox" class="sr-only peer">
+              <div class="w-12 h-6 bg-gray-300 rounded-full peer-checked:bg-[--brand] transition-all"></div>
+              <div class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white transition-all peer-checked:translate-x-6"></div>
+            </label>
+            <button id="moonBtn" class="w-9 h-9 grid place-content-center rounded-full bg-white border border-[--line] dark:bg-[#0C0F16]">🌙</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Card -->
+      <section id="profileCard" class="bg-white dark:bg-gray-800 transition-all rounded-2xl shadow-lg overflow-hidden">
+        <!-- Banner -->
+        <div class="h-28 bg-gradient-to-r from-indigo-500 via-blue-400 to-cyan-400"></div>
+        
+        <!-- Profile Content -->
+        <div class="p-8">
+          <!-- Header Row -->
+          <div class="flex justify-between items-start">
+            <div class="flex items-center gap-6">
+              <img src="data:image/png;base64,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" 
+                class="w-24 h-24 rounded-full border-4 border-white -mt-16 shadow-lg" />
+              <div>
+                <h2 class="text-xl font-semibold" id="profileName">Sushanth</h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400" id="profileEmail">sushanth@gmail.com</p>
+              </div>
+            </div>
+            <button id="editBtn" class="px-4 py-2 bg-[--brand] hover:bg-blue-700 text-white rounded-xl shadow-md">Edit</button>
+          </div>
+
+          <!-- Form -->
+          <form id="profileForm" class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div>
+              <label class="text-sm text-gray-600 dark:text-gray-400">Full Name</label>
+              <input id="fullName" type="text" value="Sushanth" disabled
+                class="themed-input w-full mt-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 disabled:opacity-50" />
+            </div>
+            <div>
+              <label class="text-sm text-gray-600 dark:text-gray-400">Nick Name</label>
+              <input id="nickName" type="text" value="Abhi" disabled
+                class="themed-input w-full mt-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 disabled:opacity-50" />
+            </div>
+            <div>
+              <label class="text-sm text-gray-600 dark:text-gray-400">Gender</label>
+              <select id="gender" disabled
+                class="themed-input w-full mt-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 disabled:opacity-50">
+                <option selected>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm text-gray-600 dark:text-gray-400">Language</label>
+              <select id="language" disabled
+                class="themed-input w-full mt-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 disabled:opacity-50">
+                <option selected>English</option>
+                <option>Spanish</option>
+                <option>French</option>
+                <option>German</option>
+              </select>
+            </div>
+          </form>
+
+          <!-- Emails -->
+          <div class="mt-10 border-t border-gray-200 dark:border-gray-700 pt-8">
+            <h3 class="text-md font-semibold mb-4">My Email Address</h3>
+            <div id="emails" class="space-y-3">
+              <div class="email-item flex justify-between items-center bg-white dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                <div>
+                  <div class="text-sm">sushanth@gmail.com</div>
+                  <div class="text-xs text-gray-400">Added recently</div>
+                </div>
+                <button onclick="removeEmail(this)" class="text-red-500 text-xs">Remove</button>
+              </div>
+            </div>
+            <button onclick="addEmail()" class="mt-4 px-4 py-2 bg-[--brand]/10 text-[--brand] rounded-lg">+ Add Email Address</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // === Theme Persistence + robust fallback for backgrounds ===
+    const html = document.documentElement;
+    const toggle = document.getElementById('modeToggle');
+    const sunBtn = document.getElementById('sunBtn');
+    const moonBtn = document.getElementById('moonBtn');
+
+    // Elements we explicitly set inline fallback backgrounds on (to avoid external CSS overriding)
+    const profileCard = document.getElementById('profileCard');
+
+    function setInlineThemeColors(isDark) {
+      // Profile card fallback
+      profileCard.style.backgroundColor = isDark ? '#1f2937' : '#ffffff'; // gray-800 / white
+      profileCard.style.transition = 'background-color .18s ease';
+
+      // form inputs/selects inside card
+      document.querySelectorAll('#profileCard .themed-input').forEach(el => {
+        el.style.backgroundColor = isDark ? '#374151' : '#ffffff'; // dark: gray-700 / light: white
+        el.style.borderColor = isDark ? '#374151' : '#e5e7eb'; // gray-700 / gray-200
+        el.style.color = isDark ? '#e5e7eb' : '#111827';
+      });
+
+      // email items
+      document.querySelectorAll('#emails .email-item').forEach(el => {
+        el.style.backgroundColor = isDark ? '#1f2937' : '#ffffff';
+        el.style.borderColor = isDark ? '#374151' : '#e5e7eb';
+        el.style.transition = 'background-color .18s ease, border-color .18s ease';
+      });
+    }
+
+    function applyTheme(theme) {
+      const isDark = theme === 'dark';
+      if (isDark) {
+        html.classList.add('dark');
+        toggle.checked = true;
+      } else {
+        html.classList.remove('dark');
+        toggle.checked = false;
+      }
+      localStorage.setItem('theme', theme);
+
+      // fallback inline colors to ensure the card goes white in light mode even if other CSS overrides classes
+      setInlineThemeColors(isDark);
+    }
+
+    // Load saved theme (default to light)
+    const savedTheme = localStorage.getItem('theme');
+    applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
+    // Event listeners
+    toggle.addEventListener('change', () => applyTheme(toggle.checked ? 'dark' : 'light'));
+    sunBtn.addEventListener('click', () => applyTheme('light'));
+    moonBtn.addEventListener('click', () => applyTheme('dark'));
+
+    // === Profile Edit Logic ===
+    const editBtn = document.getElementById("editBtn");
+    const formInputs = document.querySelectorAll("#profileForm input, #profileForm select");
+    let editing = false;
+
+    editBtn.addEventListener("click", () => {
+      editing = !editing;
+      formInputs.forEach(el => el.disabled = !editing);
+      editBtn.textContent = editing ? "Save" : "Edit";
+
+      if (!editing) {
+        document.getElementById("profileName").textContent = document.getElementById("fullName").value;
+        // get first email text
+        const firstEmailNode = document.querySelector('#emails .email-item div div');
+        if (firstEmailNode) {
+          document.getElementById("profileEmail").textContent = firstEmailNode.textContent;
+        }
+      }
+    });
+
+    function addEmail() {
+      const email = prompt("Enter new email:");
+      if (email) {
+        const container = document.createElement("div");
+        container.className = "email-item flex justify-between items-center p-3 rounded-lg border";
+        // Set tailwind classes too so it still works if dark class is honored
+        container.classList.add('bg-white', 'dark:bg-gray-800', 'border-gray-200', 'dark:border-gray-700');
+        container.innerHTML = `
+          <div>
+            <div class="text-sm">${email}</div>
+            <div class="text-xs text-gray-400">Added just now</div>
+          </div>
+          <button onclick="removeEmail(this)" class="text-red-500 text-xs">Remove</button>
+        `;
+        document.getElementById("emails").appendChild(container);
+
+        // After adding, apply inline fallback colors based on current theme
+        const isDark = html.classList.contains('dark');
+        setInlineThemeColors(isDark);
+      }
+    }
+
+    function removeEmail(btn) {
+      btn.parentElement.remove();
+    }
+  </script>
+
+  <script src="collapse.js"></script>
+</body>
+</html>

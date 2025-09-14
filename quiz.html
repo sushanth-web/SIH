@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trivia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+<body class="bg-gradient-to-br from-sky-50 via-cyan-100 to-blue-200 min-h-screen flex flex-col items-center justify-start py-12 font-sans">
+
+  <!-- Quiz Card -->
+  <div class="w-full max-w-2xl bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-sky-100 relative overflow-hidden">
+    
+    <!-- Decorative Gradient Blob -->
+    <div class="absolute -top-16 -right-16 w-40 h-40 bg-gradient-to-br from-sky-400 to-cyan-400 rounded-full opacity-20 blur-2xl"></div>
+    <div class="absolute -bottom-20 -left-20 w-52 h-52 bg-gradient-to-tr from-blue-400 to-sky-300 rounded-full opacity-20 blur-2xl"></div>
+    
+    <!-- Header -->
+    <div class="mb-6 relative z-10">
+      <div class="flex justify-between items-center mb-3">
+        <span class="text-sm text-slate-600 font-medium">
+          Question <span id="question-num"></span> / <span id="total-questions"></span>
+        </span>
+        <span class="ml-auto text-xs px-3 py-1 bg-gradient-to-r from-sky-200 to-cyan-200 text-sky-800 font-semibold rounded-full shadow-sm">
+          DevForce
+        </span>
+      </div>
+      <div class="w-full bg-sky-100 rounded-full h-3 overflow-hidden">
+        <div id="progress-bar" class="bg-gradient-to-r from-sky-500 to-cyan-500 h-3 rounded-full transition-all duration-500"></div>
+      </div>
+      <span id="progress-text" class="block text-xs text-sky-700 mt-1 font-medium"></span>
+    </div>
+
+    <!-- Quiz Question -->
+    <div id="question-container" class="mb-6 relative z-10"></div>
+
+    <!-- Quick Navigation -->
+    <div class="mt-6 relative z-10">
+      <div id="quick-nav" class="flex flex-wrap justify-center gap-2"></div>
+    </div>
+  </div>
+
+  <script src="script.js">
+    
+  </script>
+</body>
+</html>

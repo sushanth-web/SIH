@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Career Roadmap - DevForce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    
+    :root {
+      --brand: #2E78FF;
+      --sidebar: #ffffff;
+      --sidebar-ink: #111827;
+      --line: #e5e7eb;
+      --card-bg: #ffffff;
+      --text-main: #111827;
+      --text-secondary: #4b5563;
+      --chat-bg: #f9fafb;
+      --chat-text: #111827;
+      --chat-border: #e5e7eb;
+    }
+    .dark {
+      --brand: #2E78FF;
+      --sidebar: #0C0F16;
+      --sidebar-ink: #ffffff;
+      --line: #374151;
+      --card-bg: #1f2937;
+      --text-main: #ffffff;
+      --text-secondary: #9ca3af;
+      --chat-bg: #111827;
+      --chat-text: #ffffff;
+      --chat-border: #374151;
+    }
+   .textdecor:hover {
+    text-decoration: underline !important;
+    color: #2E78FF !important;
+}
+
+  </style>
+</head>
+<body class="min-h-screen relative">
+<div class="flex">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" 
+    class="w-[240px] transition-all duration-300 shrink-0 px-4 pt-6 pb-6 sticky top-0 h-screen flex flex-col"
+    style="background:var(--sidebar);color:var(--sidebar-ink)">
+    
+    <!-- Header -->
+    <div class="flex items-center mb-10 sidebar-header">
+      <div class="w-9 h-9 rounded-xl bg-[--brand] grid place-content-center text-white font-black">DF</div>
+      <span class="text-2xl font-bold sidebar-text ml-2">DevForce</span>
+    </div>
+
+    <!-- Nav -->
+    <nav class="space-y-2 text-[15px] font-semibold flex-1">
+      <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="home.html">
+        <span class="w-5 h-5 flex items-center justify-center"><i class="fa-solid fa-house text-blue-500 text-[20px]"></i></span>
+        <span class="leading-none pb-2 sidebar-text pb-[8px]">Home</span>
+      </a>
+      <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="pdf.html">
+        <span class="w-5 h-5 flex items-center justify-center"><i class="fa-solid fa-file text-blue-500 text-[20px]"></i></span>
+        <span class="leading-none mb-2 sidebar-text pb-[2px]">Resources</span>
+      </a>
+      <a class=" flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5 " href="courses.html">
+        <span class="w-5 h-5 flex items-center justify-center"><i class="fa-solid fa-graduation-cap text-blue-500 text-[20px]"></i></span>
+        <span class="leading-none mb-2 sidebar-text pb-[2px]">Courses</span>
+      </a>
+      <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="scholarships.html">
+        <span class="w-5 h-5 flex items-center justify-center"><i class="fa-solid fa-user-graduate text-blue-500 text-[20px]"></i></span>
+        <span class="leading-none mb-2 sidebar-text pb-[2px]">Scholarships</span>
+      </a>
+      <a class="flex nav-active items-center gap-3 px-4 h-11 rounded-xl bg-[rgba(46,120,255,0.10)] text-[--brand] pt-[6px]" href="career.html">
+        <span class="w-5 h-5 flex items-center justify-center"><i class="fa-solid fa-route text-blue-500 text-[20px]"></i></span>
+        <span class="leading-none mb-2 sidebar-text pb-[2px]">Career</span>
+      </a>
+      <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="settings.html">
+        <span class="w-5 h-5 flex items-center justify-center"><i class="fa-solid fa-gear text-blue-500 text-[20px]"></i></span>
+        <span class="leading-none mb-2 sidebar-text pb-[2px]">Settings</span>
+      </a>
+    </nav>
+
+    <!-- Sign out -->
+    <div class="pt-8">
+      <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] text-red-500 font-semibold" href="index.html">
+        <span class="w-5 h-5 flex items-center justify-center"><i class="fa-solid fa-right-from-bracket text-red-500 text-[20px]"></i></span>
+        <span class="leading-none mb-2 sidebar-text pb-[2px]">Sign Out</span>
+      </a>
+    </div>
+
+    <!-- Collapse Button -->
+    <div class="pt-6 flex justify-center">
+      <button id="collapseBtn" class="w-8 h-8 rounded-full bg-[--brand] text-white flex items-center justify-center shadow-md leading-none">
+        <i class="fa-solid fa-angle-left text-base pt-[3px] "></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="flex-1 px-6 md:px-8 lg:px-10 py-6 space-y-6">
+
+    <!-- Top Bar -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <h1 class="text-2xl font-bold">Career Guidance</h1>
+      <!-- Theme toggle -->
+      <div class="flex items-center gap-2">
+        <button id="sunBtn" class="w-9 h-9 grid place-content-center rounded-full bg-white border border-[--line] dark:bg-[#0C0F16]">☀️</button>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input id="modeToggle" type="checkbox" class="sr-only peer">
+          <div class="w-12 h-6 bg-gray-300 rounded-full peer-checked:bg-[--brand] transition-all"></div>
+          <div class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white transition-all peer-checked:translate-x-6"></div>
+        </label>
+        <button id="moonBtn" class="w-9 h-9 grid place-content-center rounded-full bg-white border border-[--line] dark:bg-[#0C0F16]">🌙</button>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero card text-white p-6 md:p-8 rounded-2xl flex items-center justify-between"
+      style="background:linear-gradient(90deg,#2E78FF 0%, #3FA2FF 100%)">
+      <div>
+        <h2 class="text-3xl font-extrabold">Plan Your Career Path </h2>
+        <p class="mt-2 text-white/90">Explore roadmaps, job roles, and tailored learning resources to grow your future career.</p>
+      </div>
+      <img src="career-3-2.png" alt="career illustration" width="160" class="hidden md:block">
+    </section>
+
+    <!-- Roadmaps -->
+    <section>
+      <h3 class="text-xl font-semibold mb-4">Choose a Roadmap</h3>
+      <div id="roadmapGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards -->
+        <div class="card p-5 rounded-xl shadow hover:shadow-lg transition" style="background: var(--card-bg);">
+          <i class="fa-solid fa-code text-blue-600 text-3xl mb-3"></i>
+          <h4 class="font-semibold text-lg" style="color: var(--text-main);">Frontend Developer</h4>
+          <p class="text-sm mt-1" style="color: var(--text-secondary);">Learn HTML, CSS, JavaScript, React...</p>
+          <div class="mt-4"><button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm">Explore</button></div>
+        </div>
+        <div class="card p-5 rounded-xl shadow hover:shadow-lg transition" style="background: var(--card-bg);">
+          <i class="fa-solid fa-database text-blue-600 text-3xl mb-3"></i>
+          <h4 class="font-semibold text-lg" style="color: var(--text-main);">Backend Developer</h4>
+          <p class="text-sm mt-1" style="color: var(--text-secondary);">Master Node.js, Databases, APIs...</p>
+          <div class="mt-4"><button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm">Explore</button></div>
+        </div>
+        <div class="card p-5 rounded-xl shadow hover:shadow-lg transition" style="background: var(--card-bg);">
+          <i class="fa-solid fa-robot text-blue-600 text-3xl mb-3"></i>
+          <h4 class="font-semibold text-lg" style="color: var(--text-main);">AI / Data Science</h4>
+          <p class="text-sm mt-1" style="color: var(--text-secondary);">Explore ML, Python, TensorFlow...</p>
+          <div class="mt-4"><button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm">Explore</button></div>
+        </div>
+      </div>
+      <!-- Roadmaps See more -->
+<div class="mt-6 text-center">
+  <button class="px-6 py-2 rounded-lg text-sm font-medium hover:bg-[--btn-hover] textdecor"
+          style="background: var(--btn-bg); color: var(--text-main);">
+    See more
+  </button>
+</div>
+    </section>
+
+    <!-- Recommended Jobs -->
+    <section>
+      <h3 class="text-xl font-semibold mb-4">Recommended Jobs</h3>
+      <div class="space-y-4">
+        <div class="p-4 rounded-xl shadow flex justify-between items-center hover:shadow-lg transition" style="background: var(--card-bg);">
+          <div>
+            <h4 class="font-semibold" style="color: var(--text-main);">Junior Frontend Developer</h4>
+            <p class="text-sm" style="color: var(--text-secondary);">Company: Infosys • Remote • ₹6 LPA</p>
+          </div>
+          <a href="#" class="px-4 py-2 bg-[--brand] text-white rounded-lg">Apply</a>
+        </div>
+        <div class="p-4 rounded-xl shadow flex justify-between items-center hover:shadow-lg transition" style="background: var(--card-bg);">
+          <div>
+            <h4 class="font-semibold" style="color: var(--text-main);">Data Analyst</h4>
+            <p class="text-sm" style="color: var(--text-secondary);">Company: TCS • Hyderabad • ₹5.5 LPA</p>
+          </div>
+          <a href="#" class="px-4 py-2 bg-[--brand] text-white rounded-lg">Apply</a>
+        </div>
+      </div>
+<div class="mt-6 text-center">
+  <button class="px-6 py-2 rounded-lg text-sm font-medium hover:bg-[--btn-hover] textdecor"
+          style="background: var(--btn-bg); color: var(--text-main);">
+    See more
+  </button>
+</div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="rounded-xl p-6 text-center shadow card" style="background: var(--card-bg);">
+      <h3 class="text-xl font-semibold" style="color: var(--text-main);">Not sure where to start?</h3>
+      <p class="mt-2" style="color: var(--text-secondary);">Take our career quiz and get personalized suggestions.</p>
+      <a href="quiz.html" class="inline-block mt-4 px-6 py-3 bg-[--brand] text-white rounded-lg hover:bg-blue-700">Take Quiz</a>
+    </section>
+
+  </main>
+</div>
+
+<!-- Chatbot -->
+<button id="chatbotBtn" class="fixed bottom-6 right-6 bg-[--brand] text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center">
+  <i class="fa-solid fa-comments text-lg"></i>
+</button>
+<div id="chatbotPanel" class="hidden fixed bottom-20 right-6 w-80 rounded-xl shadow-lg flex flex-col"
+     style="background: var(--chat-bg); color: var(--chat-text); border: 1px solid var(--chat-border);">
+  <div style="background: var(--brand); color: #fff;" class="p-3 flex justify-between items-center">
+    <span class="font-bold">Career Bot</span>
+    <button id="closeChat" class="text-white">&times;</button>
+  </div>
+  <div id="chatMessages" class="flex-1 p-3 overflow-auto space-y-2 text-sm"></div>
+  <div class="p-2 flex gap-2 border-t" style="border-color: var(--chat-border);">
+    <input id="chatInput" type="text" placeholder="Ask me anything..."
+           class="flex-1 text-sm px-3 py-2 rounded-lg border outline-none"
+           style="background: var(--card-bg); color: var(--text-main); border-color: var(--line);" />
+    <button id="sendBtn" class="px-3 py-2 rounded-lg text-white" style="background: var(--brand);">Send</button>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script>
+  // Theme
+  const html = document.documentElement;
+  const toggle = document.getElementById('modeToggle');
+  const sunBtn = document.getElementById('sunBtn');
+  const moonBtn = document.getElementById('moonBtn');
+
+  function applyTheme(theme) {
+    if(theme === 'dark') html.classList.add('dark');
+    else html.classList.remove('dark');
+    toggle.checked = theme === 'dark';
+    localStorage.setItem('theme', theme);
+  }
+  applyTheme(localStorage.getItem('theme') || 'light');
+  toggle.addEventListener('change', ()=>applyTheme(toggle.checked?'dark':'light'));
+  sunBtn.addEventListener('click', ()=>applyTheme('light'));
+  moonBtn.addEventListener('click', ()=>applyTheme('dark'));
+
+  // Chatbot
+  const chatbotBtn = document.getElementById('chatbotBtn');
+  const chatbotPanel = document.getElementById('chatbotPanel');
+  const closeChat = document.getElementById('closeChat');
+  chatbotBtn.addEventListener('click', ()=>chatbotPanel.classList.toggle('hidden'));
+  closeChat.addEventListener('click', ()=>chatbotPanel.classList.add('hidden'));
+
+  // Chat messages
+  const chatMessages = document.getElementById('chatMessages');
+  const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  function addMessage(sender,text){
+    const div=document.createElement('div');
+    div.className=sender==='bot'?'text-left':'text-right';
+    div.innerHTML=`<div class="inline-block px-3 py-2 rounded-lg text-sm"
+      style="
+        background:${sender==='bot'?'var(--card-bg)':'var(--brand)'};
+        color:${sender==='bot'?'var(--text-main)':'#fff'};
+        border: 1px solid ${sender==='bot'?'var(--line)':'transparent'};
+      ">${text}</div>`;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  sendBtn.addEventListener('click', ()=>{
+    const query=chatInput.value.trim();
+    if(!query) return;
+    addMessage('user',query);
+    chatInput.value='';
+    setTimeout(()=>{
+      addMessage('bot','I recommend checking out relevant career paths and courses!');
+    },500);
+  });
+</script>
+<script src="collapse.js"></script>
+</body>
+</html>

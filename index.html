@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GovEdu - Government Education Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Clear, robust hover underline animation for nav links */
+    .nav-link {
+      position: relative;
+      display: inline-block;       /* ensures pseudo-element width behaves predictably */
+      padding: 0.25rem 0;
+      transition: color 220ms ease;
+      text-decoration: none;
+    }
+
+    /* underline uses scaleX transform (smooth & layout-safe) */
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 3px;
+      background: #60A5FA;         /* blue-400 */
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 260ms ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      color: #FDE68A;              /* noticeably different from white */
+    }
+    .nav-link:hover::after,
+    .nav-link:focus::after {
+      transform: scaleX(1);
+    }
+
+    /* small accessibility tweak for keyboard focus */
+    .nav-link:focus {
+      outline: 3px solid rgba(96,165,250,0.16);
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body class="m-0 p-0 font-sans antialiased">
+
+  <!-- Hero -->
+  <section class="relative h-screen bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');">
+    <!-- dimming overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-55"></div>
+
+    <!-- Navbar (above overlay) -->
+    <header class="absolute top-0 left-0 w-full z-30">
+      <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between text-white">
+        <div class="flex items-center space-x-4">
+          <div class="text-2xl font-bold tracking-wide">DevForce</div>
+        </div>
+
+        <!-- desktop nav -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a class="nav-link text-white" href="#">About Us</a>
+          <a class="nav-link text-white" href="#">Programs</a>
+          <a class="nav-link text-white" href="login.html">Login</a>
+          <a class="nav-link text-white" href="signup.html">Sign Up</a>
+        </nav>
+
+        <!-- Download CTA -->
+        <div class="ml-4">
+          <button class="bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded-md shadow">
+            Download App
+          </button>
+        </div>
+
+        <!-- mobile nav hint (since nav is hidden on small screens) -->
+        <button aria-hidden="true" class="md:hidden ml-3 text-white">☰</button>
+      </div>
+    </header>
+
+    <!-- hero content -->
+    <div class="relative z-20 flex flex-col items-center justify-center text-center h-full px-6">
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white drop-shadow-md">Empower Your Education</h1>
+      <p class="mt-6 text-white/90 text-base md:text-lg max-w-2xl">
+        A government initiative delivering accessible, high-quality learning resources
+        and skill-building programs for every citizen.
+      </p>
+      <div class="mt-8">
+        <a class="inline-block bg-white text-blue-700 font-medium px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition" href="#">
+          Explore More
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

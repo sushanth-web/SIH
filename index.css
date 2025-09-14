@@ -1,0 +1,62 @@
+:root{
+      --bg:#F2F6FF;         /* page background */
+      --panel:#ffffff;      /* card background */
+      --ink:#0F172A;        /* primary text */
+      --muted:#6B7280;      /* secondary text */
+      --brand:#2E78FF;      /* primary brand */
+      --brand-200:#CFE0FF;
+      --brand-300:#9FC1FF;
+      --sidebar:#FFFFFF;
+      --sidebar-ink:#0F172A;
+      --line:#E5E7EB;
+      --good:#22C55E; --warn:#F59E0B; --danger:#EF4444; --pink:#F472B6; --purple:#6366F1; --cyan:#06B6D4; --orange:#FB923C; --green:#10B981;
+    }
+    .dark{
+      --bg:#0F1115;         
+      --panel:#14161C;      
+      --ink:#E5E7EB;        
+      --muted:#98A2B3;      
+      --brand:#2E78FF;      
+      --brand-200:#2a56a7;  
+      --brand-300:#3b82f6;  
+      --sidebar:#0C0E12;    
+      --sidebar-ink:#E5E7EB;
+      --line:#1F2430;       
+    }
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,ui-sans-serif;background:var(--bg);color:var(--ink)}
+
+    /* scrollbars inside cards */
+    .thin-scroll::-webkit-scrollbar{width:8px;height:8px}
+    .thin-scroll::-webkit-scrollbar-thumb{background:#A0AEC0;border-radius:9999px}
+    .thin-scroll::-webkit-scrollbar-track{background:transparent}
+
+    /* circular progress */
+    .ring{position:relative;width:48px;height:48px;border-radius:9999px;background:conic-gradient(var(--brand) calc(var(--p)*1%), #e5e7eb 0)}
+    body.dark .ring{background:conic-gradient(var(--brand) calc(var(--p)*1%), #262A36 0)}
+    .ring::after{content:"";position:absolute;inset:6px;background:var(--panel);border-radius:9999px}
+
+    /* pill chips */
+    .chip{border-radius:9999px;border:1px solid var(--line);padding:3px 10px;font-size:12px}
+
+    /* subtle card edge */
+    .card{background:var(--panel);border-radius:16px;border:1px solid var(--line)}
+
+    /* sidebar icons active bar */
+    .nav-active{position:relative}
+    .nav-active::before{content:"";position:absolute;left:-16px;top:50%;transform:translateY(-50%);height:32px;width:4px;background:var(--brand);border-radius:9999px}
+
+    /* search */
+    .search{background:rgba(0,0,0,0.04)}
+    body.dark .search{background:#0C0F16;border:1px solid #1F2430}
+
+    /* gradient banner */
+    .hero{background:linear-gradient(90deg,#2E78FF 0%, #3FA2FF 100%)}
+
+    /* graph svg fill gradient */
+    .area-grad{fill:url(#grad)}
+
+    i{
+      width: 30px;
+      height: 30px;
+    }

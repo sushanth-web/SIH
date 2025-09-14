@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recommended Courses - DevForce</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen relative">
+  <div class="flex">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" 
+  class="w-[240px] transition-all duration-300 shrink-0 px-4 pt-6 pb-6 sticky top-0 h-screen flex flex-col"
+  style="background:var(--sidebar);color:var(--sidebar-ink)">
+  
+  <!-- Header -->
+  <div class="flex items-center mb-10 sidebar-header">
+    <div class="w-9 h-9 rounded-xl bg-[--brand] grid place-content-center text-white font-black">DF</div>
+    <span class="text-2xl font-bold sidebar-text  ml-2">DevForce</span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="space-y-2 text-[15px] font-semibold flex-1">
+    <a class=" flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="home.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-house text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none pb-2 sidebar-text pb-[8px]">Home</span>
+    </a>
+
+    <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="pdf.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-file text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Resources</span>
+    </a>
+
+    <a class="nav-active flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] bg-[rgba(46,120,255,0.10)] text-[--brand]" href="courses.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-graduation-cap text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Courses</span>
+    </a>
+
+    <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="scholarships.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-user-graduate text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Scholarships</span>
+    </a>
+
+    <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="career.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-route text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Career</span>
+    </a>
+
+    <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] hover:bg-black/5 dark:hover:bg-white/5" href="settings.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-gear text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Settings</span>
+    </a>
+  </nav>
+
+  <!-- Sign out -->
+  <div class="pt-8">
+    <a class="flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] text-red-500 font-semibold" href="index.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-right-from-bracket text-red-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Sign Out</span>
+    </a>
+  </div>
+
+  <!-- Collapse Button -->
+  <div class="pt-6 flex justify-center">
+    <button id="collapseBtn" 
+      class="w-8 h-8 rounded-full bg-[--brand] text-white flex items-center justify-center shadow-md leading-none">
+      <i class="fa-solid fa-angle-left text-base pt-[3px] "></i>
+    </button>
+  </div>
+</aside>
+
+    <!-- Main -->
+    <main class="flex-1 px-6 md:px-8 lg:px-10 py-6 space-y-6">
+
+      <!-- Top Bar -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <h1 class="text-2xl font-bold">Recommended Courses</h1>
+        
+        <!-- Search bar -->
+        <div class="flex items-center gap-2 w-full md:w-1/3 border border-[--line] rounded-full px-3 py-2">
+          <i class="fa-solid fa-search text-gray-500 pt-[6px]"></i>
+          <input id="searchInput" type="text" placeholder="Search courses..." 
+                 class="flex-1 bg-transparent outline-none text-sm placeholder-gray-400"/>
+        </div>
+
+        <!-- Theme toggle -->
+        <div class="flex items-center gap-2">
+          <button id="sunBtn" class="w-9 h-9 grid place-content-center rounded-full bg-white border border-[--line] dark:bg-[#0C0F16]">☀️</button>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input id="modeToggle" type="checkbox" class="sr-only peer">
+            <div class="w-12 h-6 bg-gray-300 rounded-full peer-checked:bg-[--brand] transition-all"></div>
+            <div class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white transition-all peer-checked:translate-x-6"></div>
+          </label>
+          <button id="moonBtn" class="w-9 h-9 grid place-content-center rounded-full bg-white border border-[--line] dark:bg-[#0C0F16]">🌙</button>
+        </div>
+      </div>
+
+      <!-- Courses Grid -->
+<section id="coursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="card p-5 rounded-xl shadow hover:shadow-lg transition course">
+    <h3 class="font-semibold text-lg">Web Development</h3>
+    <p class="text-sm opacity-70 mt-1">Learn HTML, CSS, JavaScript and frameworks to build modern websites.</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm hover:bg-blue-600 transition">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <div class="card p-5 rounded-xl shadow hover:shadow-lg transition course">
+    <h3 class="font-semibold text-lg">Data Science</h3>
+    <p class="text-sm opacity-70 mt-1">Master Python, ML, and AI concepts for data-driven decision making.</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm hover:bg-blue-600 transition">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <div class="card p-5 rounded-xl shadow hover:shadow-lg transition course">
+    <h3 class="font-semibold text-lg">App Development</h3>
+    <p class="text-sm opacity-70 mt-1">Build Android & iOS apps with Flutter, React Native and more.</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm hover:bg-blue-600 transition">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <div class="card p-5 rounded-xl shadow hover:shadow-lg transition course">
+    <h3 class="font-semibold text-lg">Cybersecurity</h3>
+    <p class="text-sm opacity-70 mt-1">Understand ethical hacking, network security, and cyber defense.</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm hover:bg-blue-600 transition">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <div class="card p-5 rounded-xl shadow hover:shadow-lg transition course">
+    <h3 class="font-semibold text-lg">Cloud Computing</h3>
+    <p class="text-sm opacity-70 mt-1">Learn AWS, Azure and cloud-native architectures for scaling apps.</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm hover:bg-blue-600 transition">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <div class="card p-5 rounded-xl shadow hover:shadow-lg transition course">
+    <h3 class="font-semibold text-lg">AI & Machine Learning</h3>
+    <p class="text-sm opacity-70 mt-1">Dive into neural networks, deep learning, and applied AI solutions.</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm hover:bg-blue-600 transition">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <div class="card p-5 rounded-xl shadow hover:shadow-lg transition course">
+    <h3 class="font-semibold text-lg">Blockchain</h3>
+    <p class="text-sm opacity-70 mt-1">Understand distributed ledgers, smart contracts, and Web3 apps.</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm hover:bg-blue-600 transition">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <div class="card p-5 rounded-xl shadow hover:shadow-lg transition course">
+    <h3 class="font-semibold text-lg">UI/UX Design</h3>
+    <p class="text-sm opacity-70 mt-1">Learn user-centered design, prototyping, and design systems.</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm hover:bg-blue-600 transition">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <div class="card p-5 rounded-xl shadow hover:shadow-lg transition course">
+    <h3 class="font-semibold text-lg">DevOps</h3>
+    <p class="text-sm opacity-70 mt-1">Master CI/CD, containerization, Kubernetes, and automation pipelines.</p>
+    <div class="mt-4">
+      <button class="px-4 py-2 bg-[--brand] text-white rounded-lg text-sm hover:bg-blue-600 transition">
+        Learn More
+      </button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Floating Chatbot -->
+<button id="chatbotBtn" 
+  class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[--brand] text-white flex items-center justify-center shadow-lg hover:scale-105 transition">
+  <i class="fa-solid fa-robot text-xl"></i>
+</button>
+
+<!-- Chatbot Panel -->
+<!-- Chatbot Panel -->
+<div id="chatbotPanel" 
+  class="hidden fixed bottom-20 right-6 w-80 h-96 rounded-xl flex flex-col overflow-hidden shadow-xl"
+  style="background:var(--sidebar);color:var(--ink)">
+  
+  <!-- Header -->
+  <div class="bg-[--brand] text-white p-3 flex justify-between items-center">
+    <span class="font-semibold">Course Assistant</span>
+    <button id="closeChat" class="text-white">&times;</button>
+  </div>
+  
+  <!-- Messages -->
+  <div id="chatMessages" class="flex-1 p-3 overflow-y-auto text-sm space-y-2"></div>
+  
+  <!-- Input -->
+  <div class="p-2 border-t flex items-center gap-2" style="border-color:var(--line)">
+    <input id="chatInput" type="text" placeholder="Ask for courses..." 
+           class="flex-1 text-sm px-3 py-2 rounded-lg border outline-none"
+           style="background:var(--bg);color:var(--ink);border-color:var(--line)"/>
+    <button id="sendBtn" 
+      class="px-3 py-2 rounded-lg text-white" 
+      style="background:var(--brand)">
+      Send
+    </button>
+  </div>
+</div>
+
+  <!-- Scripts -->
+  <script>
+    // Theme persistence
+    const html = document.documentElement;
+    const toggle = document.getElementById('modeToggle');
+    const sunBtn = document.getElementById('sunBtn');
+    const moonBtn = document.getElementById('moonBtn');
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        html.classList.add('dark');
+        toggle.checked = true;
+      } else {
+        html.classList.remove('dark');
+        toggle.checked = false;
+      }
+      localStorage.setItem('theme', theme);
+    }
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+    toggle.addEventListener('change', () => applyTheme(toggle.checked ? 'dark' : 'light'));
+    sunBtn.addEventListener('click', () => applyTheme('light'));
+    moonBtn.addEventListener('click', () => applyTheme('dark'));
+
+    // Search filter
+    const searchInput = document.getElementById('searchInput');
+    const courses = document.querySelectorAll('.course');
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      courses.forEach(course => {
+        const text = course.innerText.toLowerCase();
+        course.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    });
+
+    // Chatbot toggle
+    const chatbotBtn = document.getElementById('chatbotBtn');
+    const chatbotPanel = document.getElementById('chatbotPanel');
+    const closeChat = document.getElementById('closeChat');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    chatbotBtn.addEventListener('click', () => chatbotPanel.classList.toggle('hidden'));
+    closeChat.addEventListener('click', () => chatbotPanel.classList.add('hidden'));
+
+    function addMessage(sender, text) {
+      const div = document.createElement('div');
+      div.className = sender === 'bot' ? 'text-left' : 'text-right';
+      div.innerHTML = `<div class="inline-block px-3 py-2 rounded-lg ${sender === 'bot' ? 'bg-gray-200 dark:bg-gray-700' : 'bg-[--brand] text-white'}">${text}</div>`;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendBtn.addEventListener('click', () => {
+      const query = chatInput.value.trim();
+      if (!query) return;
+      addMessage('user', query);
+      chatInput.value = '';
+
+      // Fake bot response
+      setTimeout(() => {
+        if (query.toLowerCase().includes('ai')) {
+          addMessage('bot', 'You might like our "AI & Machine Learning" and "Data Science" courses.');
+        } else if (query.toLowerCase().includes('web')) {
+          addMessage('bot', 'Try "Web Development" or "UI/UX Design".');
+        } else {
+          addMessage('bot', 'I recommend checking "Cloud Computing" or "DevOps" as well!');
+        }
+      }, 600);
+    });
+    function addMessage(sender, text) {
+  const div = document.createElement('div');
+  div.className = sender === 'bot' ? 'text-left' : 'text-right';
+
+  div.innerHTML = `
+    <div class="inline-block px-3 py-2 rounded-lg text-sm"
+         style="
+           background:${sender === 'bot' ? 'var(--bg)' : 'var(--brand)'};
+           color:${sender === 'bot' ? 'var(--ink)' : '#fff'};
+           border: 1px solid ${sender === 'bot' ? 'var(--line)' : 'transparent'};
+         ">
+      ${text}
+    </div>
+  `;
+  
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+  </script>
+  <script src="collapse.js"></script>
+</body>
+</html>

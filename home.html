@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIH Hackathon Dashboard</title>
+  <!-- Tailwind via CDN -->
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Flaticon / IconScout Icons -->
+<script src="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons/js/all/all.js"></script>
+    <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+</head>
+<body class="min-h-screen">
+  <div class="flex">
+
+    <!-- Sidebar -->
+ <aside id="sidebar" 
+  class="w-[240px] transition-all duration-300 shrink-0 px-4 pt-6 pb-6 sticky top-0 h-screen flex flex-col"
+  style="background:var(--sidebar);color:var(--sidebar-ink)">
+  
+  <!-- Header -->
+  <div class="flex items-center mb-10 sidebar-header">
+    <div class="w-9 h-9 rounded-xl bg-[--brand] grid place-content-center text-white font-black">DF</div>
+    <span class="text-2xl font-bold sidebar-text  ml-2">DevForce</span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="space-y-2 text-[15px] font-semibold flex-1">
+    <a class="nav-active flex items-center gap-3 px-4 h-11 rounded-xl pt-[6px] bg-[rgba(46,120,255,0.10)] text-[--brand] " href="home.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-house text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none pb-2 sidebar-text pb-[8px]">Home</span>
+    </a>
+
+    <a class="flex items-center pt-[6px] gap-3 px-4 h-11 rounded-xl hover:bg-black/5 dark:hover:bg-white/5" href="pdf.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-file text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Resources</span>
+    </a>
+
+    <a class="flex items-center pt-[6px] gap-3 px-4 h-11 rounded-xl hover:bg-black/5 dark:hover:bg-white/5" href="courses.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-graduation-cap text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Courses</span>
+    </a>
+
+    <a class="flex items-center pt-[6px] gap-3 px-4 h-11 rounded-xl hover:bg-black/5 dark:hover:bg-white/5" href="scholarships.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-user-graduate text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Scholarships</span>
+    </a>
+
+    <a class="flex items-center pt-[6px] gap-3 px-4 h-11 rounded-xl hover:bg-black/5 dark:hover:bg-white/5" href="career.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-route text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Career</span>
+    </a>
+
+    <a class="flex items-center pt-[6px] gap-3 px-4 h-11 rounded-xl hover:bg-black/5 dark:hover:bg-white/5" href="settings.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-gear text-blue-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Settings</span>
+    </a>
+  </nav>
+
+  <!-- Sign out -->
+  <div class="pt-8">
+    <a class="flex items-center pt-[6px] gap-3 px-4 h-11 rounded-xl text-red-500 font-semibold" href="index.html">
+      <span class="w-5 h-5 flex items-center justify-center">
+        <i class="fa-solid fa-right-from-bracket text-red-500 text-[20px]"></i>
+      </span>
+      <span class="leading-none mb-2 sidebar-text pb-[2px]">Sign Out</span>
+    </a>
+  </div>
+
+  <!-- Collapse Button -->
+  <div class="pt-6 flex justify-center">
+    <button id="collapseBtn" 
+      class="w-8 h-8 rounded-full bg-[--brand] text-white flex items-center justify-center shadow-md leading-none">
+      <i class="fa-solid fa-angle-left text-base pt-[3px] "></i>
+    </button>
+  </div>
+</aside>
+
+
+
+    <!-- Main -->
+    <main class="flex-1 px-6 md:px-8 lg:px-10 py-6 space-y-6">
+      <!-- top bar -->
+      <div class="flex items-center gap-4">
+        <div class="flex-1">
+          <div class="search rounded-full px-5 py-3 flex items-center gap-3 border border-transparent">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input class="bg-transparent outline-none w-full text-sm" placeholder="Search Courses, Documents, Activities..."/>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <!-- day/night switch -->
+          <div class="flex items-center gap-2">
+            <button id="sunBtn" class="w-9 h-9 grid place-content-center rounded-full bg-white border border-[--line] dark:bg-[#0C0F16]">☀️</button>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input id="modeToggle" type="checkbox" class="sr-only peer">
+              <div class="w-12 h-6 bg-gray-300 rounded-full peer-checked:bg-[--brand] transition-all"></div>
+              <div class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white transition-all peer-checked:translate-x-6"></div>
+            </label>
+            <button id="moonBtn" class="w-9 h-9 grid place-content-center rounded-full bg-white border border-[--line] dark:bg-[#0C0F16]">🌙</button>
+          </div>
+          <!-- bell -->
+        
+          <!-- profile -->
+          <div class="flex items-center gap-3 card px-3 py-1.5 rounded-full">
+            <div class="w-8 h-8 rounded-full bg-[--brand] text-white grid place-content-center font-bold">S</div>
+            <div class="text-sm font-semibold" id="mainname">Sushanth</div>
+            <svg class="w-4 h-4 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- hero banner -->
+      <section class="hero card !border-0 text-white p-6 md:p-8 rounded-2xl flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-extrabold">Welcome back, <span class="text-3xl md:text-4xl font-extrabold" id="loginname">Sushanth</span> 👋</h1>
+          <p class="mt-2 text-white/90"><span class="font-bolld">A government initiative delivering accessible, high-quality learning resources and skill-building programs for every citizen.
+
+</span></p> 
+        </div>
+        <!-- simple illustration -->
+        <div class="hidden md:block pr-4">
+          <img src="profile-analysis-98.png" width="200px"  alt="illustration">
+        </div>
+      </section>
+
+      <!-- grid -->
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        <!-- left column: performance + messages -->
+        <div class="xl:col-span-2 space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Performance chart -->
+            <div style="background:linear-gradient(90deg,#2E78FF 0%, #3FA2FF 100%)" class="relative overflow-hidden  rounded-2xl shadow-xl p-8 text-white">
+  <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+  <div class="relative z-10">
+    <h3 class="text-2xl font-bold mb-3"><i class="fa-solid fa-bullseye text-white text-[20px]"></i> Take a Quiz to Analyse Your Best-Suited Courses</h3>
+    <p class="mb-6 text-lg text-white/90 max-w-2xl">
+      Discover your strengths and interests with our short quiz. We'll recommend the courses tailored to help you succeed in your academic journey.
+    </p>
+    <div class="flex space-x-4">
+      <a href="quiz.html" class="bg-white text-center text-blue-600 font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-200 transition">Retake Quiz</a>
+      <button id="alertBtn" class="bg-transparent border border-white text-white px-6 py-3 rounded-xl hover:bg-white hover:text-blue-600 transition">Learn More</button>
+    </div>
+  </div>
+</div>
+
+
+            <!-- Completion progress list -->
+            <div class="card  pb-5  p-5">
+              <div class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold">Entrance Exams</h3>
+              <a href="https://portal-psc.ap.gov.in/HomePages/ExaminationCalendar" class="text-[--brand] text-sm font-semibold">See all</a>
+            </div>
+              <div class="space-y-4 max-h-[330px] pb-5  pr-2 overflow-y-auto  thin-scroll">
+                <!-- item -->
+                
+                <div class="flex items-center gap-4">
+                  <a href="https://jeemain.nta.nic.in/" class="flex items-center gap-4 p-3 rounded-xl border border-[--line] hover:bg-black/5 dark:hover:bg-white/5">
+                <div class="w-12 h-12 rounded-full bg-red-600 text-white grid place-content-center text-xl font-bold">J</div>
+                <div class="flex-1">
+                  <div class="font-semibold">JEE Mains</div>
+                  <div class="text-xs text-[color:var(--muted)]">7th - 21st Dec 2025 • 8 A.M - 9 A.M</div>
+                  <div class="text-xs text-[color:var(--muted)]">Engineering entrance exam for NITs & IITs.</div>
+                </div>
+                <div class="opacity-60">›</div>
+              </a>
+                </div>
+                 
+                 <div class="flex items-center gap-4">
+                  <a href="https://eapcet-sche.aptonline.in/EAPCET/" class="flex items-center gap-4 p-3 rounded-xl border border-[--line] hover:bg-black/5 dark:hover:bg-white/5">
+                <div class="w-12 h-12 rounded-full bg-teal-600 text-white grid place-content-center text-xl font-bold">E</div>
+                <div class="flex-1">
+                  <div class="font-semibold">EAPCET</div>
+                  <div class="text-xs text-[color:var(--muted)]">12th - 19th Nov 2025 • 9 A.M - 11 A.M</div>
+                  <div class="text-xs text-[color:var(--muted)]">Engineering entrance exam to colleges in AP.</div>
+                </div>
+                <div class="opacity-60">›</div>
+              </a>
+                </div>
+                 
+                <div class="flex items-center gap-4">
+                  <a href="https://neet.nta.nic.in/" class="flex items-center gap-4 p-3 rounded-xl border border-[--line] hover:bg-black/5 dark:hover:bg-white/5">
+                <div class="w-12 h-12 rounded-full bg-yellow-400 text-white grid place-content-center text-xl font-bold">N</div>
+                <div class="flex-1">
+                  <div class="font-semibold">NEET </div>
+                  <div class="text-xs text-[color:var(--muted)]">3rd - 9th Dec  2025 • 8 A.M - 9 A.M</div>
+                  <div class="text-xs text-[color:var(--muted)]">Medical entrance test for MBBS/BDS.</div>
+                </div>
+                <div class="opacity-60">›</div>
+              </a>
+                </div>
+                <div class="flex items-center gap-4">
+                  <a href="https://iimcat.ac.in/per/g06/pub/32842/ASM/WebPortal/1/index.html?32842@@1@@1" class="flex items-center gap-4 p-3 rounded-xl border border-[--line] hover:bg-black/5 dark:hover:bg-white/5">
+                <div class="w-12 h-12 rounded-full bg-[--brand] text-white grid place-content-center text-xl font-bold">C</div>
+                <div class="flex-1">
+                  <div class="font-semibold">CAT</div>
+                  <div class="text-xs text-[color:var(--muted)]">1st - 18th Jan 2026 • 1 P.M - 3 P.M</div>
+                  <div class="text-xs text-[color:var(--muted)]">MBA entrance exam for IIMs & top B-schools.</div>
+                </div>
+                <div class="opacity-60">›</div>
+              </a>
+                </div>
+                <div class="flex items-center gap-4">
+                 <a href="https://gate2025.iitr.ac.in/" class="flex items-center gap-4 p-3 rounded-xl border border-[--line] hover:bg-black/5 dark:hover:bg-white/5">
+                <div class="w-12 h-12 rounded-full bg-violet-600 text-white grid place-content-center text-xl font-bold">G</div>
+                <div class="flex-1">
+                  <div class="font-semibold">GATE</div>
+                  <div class="text-xs text-[color:var(--muted)]">9th - 26th Jan 2026 • 8 A.M - 9 A.M</div>
+                  <div class="text-xs text-[color:var(--muted)]">Postgraduate entrance exam for engineering.</div>
+                </div>
+                <div class="opacity-60">›</div>
+              </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Messages -->
+          
+            <!-- Map Section -->
+<div class="card p-5 h-[394px] bg-gray-800 shadow rounded-xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6"  style="background:linear-gradient(90deg,#2E78FF 0%, #3FA2FF 100%)">
+  <!-- Left: Map -->
+  <div class="w-full h-64 md:h-full rounded-lg overflow-hidden shadow border border-3 border-white" >
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61512.72025767147!2d79.99042382363926!3d15.508886641618359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4b011c10366c03%3A0x6ee40296fd2dbcc5!2sOngole%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1757520788741!5m2!1sen!2sin" 
+      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+    
+  </div>
+
+  <!-- Right: Nearby Colleges -->
+  <div class="flex flex-col ">
+    <span class="flex align-center  gap-1 text-lg font-semibold mb-3 text-white"><span><img src="circle.png" width="30px" alt="location"> </span><span>Ongole</span></span>
+    <ul class="space-y-3 overflow-auto thin-scroll pr-2" style="max-height: 300px;">
+      <li class="p-3 hover:bg-gray-200 rounded-lg bg-gray-100  flex justify-between items-center ">
+        <span class="text-blue-600  font-semibold">Medical College</span>
+        <span class="text-sm text-gray-500">2.3 km</span>
+      </li>
+      <li class="p-3 hover:bg-gray-200 rounded-lg bg-gray-100  flex justify-between items-center">
+        <span class="text-blue-600 font-semibold">Polytechnic College</span>
+        <span class="text-sm text-gray-500">5.1 km</span>
+      </li>
+      <li class="p-3 hover:bg-gray-200 rounded-lg bg-gray-100  flex justify-between items-center">
+        <span class="text-blue-600 font-semibold">ITI College</span>
+        <span class="text-sm text-gray-500">8.7 km</span>
+      </li>
+      <li class="p-3 hover:bg-gray-200 rounded-lg bg-gray-100  flex justify-between items-center">
+        <span class="text-blue-600 font-semibold">RGUKT Ongole</span>
+        <span class="text-sm text-gray-500">4.5 km</span>
+      </li>
+      <li class="p-3 hover:bg-gray-200 rounded-lg bg-gray-100  flex justify-between items-center">
+        <span class="text-blue-600 font-semibold">Degree College</span>
+        <span class="text-sm text-gray-500">50 km</span>
+      </li>
+      <li class="p-3 hover:bg-gray-200 rounded-lg bg-gray-100  flex justify-between items-center">
+        <span class="text-blue-600 font-semibold">Junior College</span>
+        <span class="text-sm text-gray-500">65 km</span>
+      </li>
+    </ul>
+  </div>
+
+
+          </div>
+        </div>
+
+        <!-- right column: calendar + upcoming -->
+        <div class="space-y-6">
+          <!-- My Progress + Calendar -->
+          <div class="card p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">Schedule</h3>
+              <div class="text-sm opacity-70">Nov 2025<svg class="inline w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+            </div>
+            <div class="grid grid-cols-7 gap-4 text-center mt-4 text-sm">
+              <div class="opacity-60">Mo</div><div class="opacity-60">Tu</div><div class="opacity-60">We</div><div class="opacity-60">Th</div><div class="opacity-60">Fr</div><div class="opacity-60">Sa</div><div class="opacity-60">Su</div>
+              <!-- row 1 (starts Thu) -->
+              <div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div>
+              <!-- row 2 -->
+              <div>5</div><div>6</div><div>7</div>
+              <div><div class="mx-auto w-9 h-9 grid place-content-center rounded-full bg-[--brand] text-white">8</div></div>
+              <div>9</div><div>10</div><div>11</div>
+              <!-- row 3 -->
+              <div><div class="mx-auto w-9 h-9 grid place-content-center rounded-full bg-pink-400 text-white">13</div></div>
+              <div>14</div><div>15</div><div>16</div><div>17</div>
+              <div><div class="mx-auto w-9 h-9 grid place-content-center rounded-full bg-green-500 text-white">18</div></div>
+              <!-- row 4 -->
+              <div>19</div><div>20</div><div>21</div><div>22</div>
+              <div><div class="mx-auto w-9 h-9 grid place-content-center rounded-full bg-orange-500 text-white">23</div></div>
+              <div>24</div><div>25</div>
+              <!-- row 5 -->
+              <div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div></div>
+            </div>
+          </div>
+
+          <!-- Upcoming Activities list -->
+          <div class="card p-5">
+          <div class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold">Upcoming Activities</h3>
+              <a href="#" class="text-[--brand] text-sm font-semibold">See all</a>
+            </div>
+            <div class="space-y-3 max-h-[400px] overflow-auto thin-scroll pr-2">
+              <!-- item -->
+              <a href="https://www.rguktrkv.ac.in/Students.php?view=Admissions" class="flex items-center gap-4 p-3 rounded-xl border border-[--line] hover:bg-black/5 dark:hover:bg-white/5">
+                <div class="w-12 h-12 rounded-full bg-[--brand] text-white grid place-content-center text-xl font-bold">8</div>
+                <div class="flex-1">
+                  <div class="font-semibold">RGUKT RKV Admissions</div>
+                  <div class="text-xs text-[color:var(--muted)]">8th - 10th Nov 2025 • 8 A.M - 9 A.M</div>
+                  <div class="text-xs text-[color:var(--muted)]">IIIT Kadapa College, Vempalli, AP State.</div>
+                </div>
+                <div class="opacity-60">›</div>
+              </a>
+              <a href="https://jntugvcev.edu.in/academics/examinations/scholarships/" class="flex items-center gap-4 p-3 rounded-xl border border-[--line] bg-pink-50 dark:bg-pink-500/10">
+                <div class="w-12 h-12 rounded-full bg-pink-400 text-white grid place-content-center text-xl font-bold">13</div>
+                <div class="flex-1">
+                  <div class="font-semibold">JNTU Scholarships</div>
+                  <div class="text-xs text-[color:var(--muted)]">13th Nov 2025 • 8 A.M - 9 A.M</div>
+                  <div class="text-xs text-[color:var(--muted)]">JNTU, University Road, Vizainagaram.</div>
+                </div>
+                <div class="opacity-60">›</div>
+              </a>
+              <a href="https://audoa.andhrauniversity.edu.in/" class="flex items-center gap-4 p-3 rounded-xl border border-[--line] bg-green-50 dark:bg-green-500/10">
+                <div class="w-12 h-12 rounded-full bg-green-500 text-white grid place-content-center text-xl font-bold">18</div>
+                <div class="flex-1">
+                  <div class="font-semibold">ANDHRA University Counselling</div>
+                  <div class="text-xs text-[color:var(--muted)]">18th Nov 2025 • 8 A.M - 9 A.M</div>
+                  <div class="text-xs text-[color:var(--muted)]">**To be submitted via Email</div>
+                </div>
+                <div class="opacity-60">›</div>
+              </a>
+              <a href="https://svpec.edu.in/" class="flex items-center gap-4 p-3 rounded-xl border border-[--line] bg-orange-50 dark:bg-orange-500/10">
+                <div class="w-12 h-12 rounded-full bg-orange-500 text-white grid place-content-center text-xl font-bold">23</div>
+                <div class="flex-1">
+                  <div class="font-semibold">Sankethika Institute New Course</div>
+                  <div class="text-xs text-[color:var(--muted)]">23rd Nov 2025 • 10 A.M - 1 P.M</div>
+                  <div class="text-xs text-[color:var(--muted)]">Vishakapatnam, Andhra Pradesh.</div>
+                </div>
+                <div class="opacity-60">›</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+    </main>
+  </div>
+
+  <script src="index.js">
+    
+  </script>
+   <script src="collapse.js"></script>
+  <script src="name.js"></script>
+</body>
+</html>

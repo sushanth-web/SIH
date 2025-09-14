@@ -1,4 +1,4 @@
-<img width="1366" height="768" alt="Screenshot 2025-09-14 121243" src="https://github.com/user-attachments/assets/b281f026-547d-46a9-bbe4-1a9e1b731de5" /># 📚 Government Educational App
+# 📚 Government Educational App
 
 A modern and user-friendly government-backed education platform designed to provide students, teachers, and institutions with seamless access to resources, scholarships, and learning opportunities.
 
